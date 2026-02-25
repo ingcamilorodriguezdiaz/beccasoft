@@ -3,8 +3,8 @@
     <div class="contact__inner">
       <h1 class="contact__title">Contáctenos</h1>
       <p class="contact__sub">
-        Nuestro equipo de especialistas está listo para acompañarle en el proceso
-        de integración de facturación electrónica.
+        Nuestro equipo de integradores está listo para acompañarle en el proceso de
+        conexión de su empresa con la facturación electrónica.
       </p>
 
       <div class="contact__options">
@@ -20,7 +20,7 @@
           </div>
         </a>
 
-        <a [href]="'mailto:' + EMAIL" class="contact__option">
+        <a [href]="'mailto:' + EMAIL_VENTAS" class="contact__option">
           <div class="contact__option-icon contact__option-icon--blue">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -28,8 +28,22 @@
             </svg>
           </div>
           <div>
-            <div class="contact__option-title">Correo Corporativo</div>
-            <div class="contact__option-subtitle">{{ EMAIL }}</div>
+            <div class="contact__option-title">Ventas</div>
+            <div class="contact__option-subtitle">{{ EMAIL_VENTAS }}</div>
+          </div>
+        </a>
+
+        <a [href]="'mailto:' + EMAIL_SOPORTE" class="contact__option">
+          <div class="contact__option-icon contact__option-icon--teal">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div>
+            <div class="contact__option-title">Soporte Técnico</div>
+            <div class="contact__option-subtitle">{{ EMAIL_SOPORTE }}</div>
           </div>
         </a>
       </div>

@@ -14,10 +14,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     </main>
     <app-footer />
   `,
-  styles: [`
-    main { min-height: 100vh; }
-  `],
+  styles: [`main { min-height: 100vh; }`],
 })
-export class AppComponent {
-  title = 'beccasoft';
-}
+export class AppComponent {}

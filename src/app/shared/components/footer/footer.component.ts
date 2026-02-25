@@ -12,21 +12,24 @@ import { ScrollService } from '../../../core/services/scroll.service';
 export class FooterComponent {
   currentYear = new Date().getFullYear();
 
-  readonly BECCAFACT_URL = 'https://beccafact.com';
-  readonly WHATSAPP_URL  = 'https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20BeccaFact';
-  readonly EMAIL         = 'contacto@beccasoft.com';
+  readonly BECCAFACT_URL    = 'https://beccafact.com';
+  readonly WHATSAPP_URL     = 'https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20BeccaFact';
+  readonly EMAIL_VENTAS     = 'ventas@beccasoft.com';
+  readonly EMAIL_SOPORTE    = 'soporte@beccasoft.com';
 
   solutions = [
-    { label: 'Factura Electrónica',  href: 'https://beccafact.com' },
-    { label: 'Nómina Electrónica',   href: 'https://beccafact.com' },
-    { label: 'Documento Soporte',    href: 'https://beccafact.com' },
-    { label: 'API de Integración',   href: 'https://beccafact.com' },
+    { label: 'Facturación Electrónica', href: 'https://beccafact.com' },
+    { label: 'Integración de Inventario', href: 'https://beccafact.com' },
+    { label: 'Integración de Cartera', href: 'https://beccafact.com' },
+    { label: 'Nómina Electrónica', href: 'https://beccafact.com' },
+    { label: 'API de Integración', href: 'https://beccafact.com' },
     { label: 'Dashboard Financiero', href: 'https://beccafact.com' },
   ];
 
   company = [
-    { label: 'Acerca de Beccasoft', fragment: 'inicio' },
-    { label: 'BeccaFact',           fragment: 'beccafact' },
+    { label: 'Inicio',             fragment: 'inicio' },
+    { label: '¿Qué es BeccaFact?', fragment: 'beccafact' },
+    { label: 'Modelo de integración', fragment: 'integraciones' },
     { label: 'Beneficios',          fragment: 'beneficios' },
     { label: 'Cómo funciona',       fragment: 'como-funciona' },
     { label: 'Planes',              fragment: 'planes' },

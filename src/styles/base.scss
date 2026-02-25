@@ -2,11 +2,9 @@
 @use 'styles/mixins' as m;
 
 // ============================================
-// RESET & BASE
+// RESET
 // ============================================
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -21,12 +19,10 @@ html {
 body {
   font-family: v.$font-body;
   font-size: v.$font-size-base;
-  font-weight: v.$font-weight-regular;
   color: v.$color-neutral-800;
-  background-color: v.$color-white;
+  background: v.$color-white;
   line-height: v.$line-height-normal;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
@@ -37,29 +33,13 @@ h1, h2, h3, h4, h5, h6 {
   color: v.$color-neutral-900;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img, svg {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-family: inherit;
-}
-
-ul, ol {
-  list-style: none;
-}
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+ul, ol { list-style: none; }
 
 // ============================================
-// CLASES GLOBALES REUTILIZABLES
+// UTILITARIOS GLOBALES
 // ============================================
 .container {
   @include m.container;
@@ -69,9 +49,7 @@ ul, ol {
   @include m.section-padding;
 }
 
-// ============================================
-// SECTION HEADER — corregido para evitar mixed-decls
-// ============================================
+// Section header — clases planas para evitar css-nesting-error
 .section-header {
   text-align: center;
   margin-bottom: v.$spacing-12;
@@ -105,17 +83,14 @@ ul, ol {
 }
 
 .section-header__subtitle {
-  font-family: v.$font-body;
   font-size: v.$font-size-lg;
-  font-weight: v.$font-weight-regular;
-  line-height: v.$line-height-relaxed;
   color: v.$color-neutral-600;
+  line-height: v.$line-height-relaxed;
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
 
-// Gradient text utility
 .text-gradient {
   background: linear-gradient(135deg, v.$color-primary-400, v.$color-accent-400);
   -webkit-background-clip: text;
@@ -124,7 +99,7 @@ ul, ol {
 }
 
 // ============================================
-// BOTONES GLOBALES
+// BOTONES GLOBALES — clases planas
 // ============================================
 .btn {
   display: inline-flex;
@@ -177,9 +152,7 @@ ul, ol {
     box-shadow: v.$shadow-accent;
   }
 
-  &:active {
-    transform: translateY(0);
-  }
+  &:active { transform: translateY(0); }
 }
 
 .btn--secondary {

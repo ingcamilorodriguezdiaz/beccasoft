@@ -11,9 +11,9 @@ import { ScrollAnimationDirective } from '../../../../shared/directives/scroll-a
 })
 export class HeroComponent {
   stats = [
-    { value: '+500',  label: 'Empresas activas' },
+    { value: '+500',  label: 'Empresas integradas' },
     { value: '99.9%', label: 'Uptime garantizado' },
-    { value: '+2M',   label: 'Facturas emitidas' },
+    { value: '+2M',   label: 'Documentos procesados' },
     { value: '24/7',  label: 'Soporte técnico' },
   ];
 

@@ -1,9 +1,7 @@
 @use 'styles/variables' as v;
 @use 'styles/mixins' as m;
 
-.plans {
-  background: v.$color-white;
-}
+.plans { background: v.$color-white; }
 
 .plans__grid {
   display: grid;
@@ -38,22 +36,12 @@
     border-color: v.$color-primary-700;
     box-shadow: v.$shadow-primary;
 
-    &:hover {
-      transform: translateY(-6px);
-      box-shadow: v.$shadow-2xl;
-    }
+    &:hover { transform: translateY(-6px); box-shadow: v.$shadow-2xl; }
 
     .plans__name { color: v.$color-white; }
     .plans__sub  { color: rgba(v.$color-white, 0.65); }
-
-    .plans__feature {
-      color: rgba(v.$color-white, 0.85);
-      svg { stroke: v.$color-accent-400; }
-    }
-
-    .plans__features {
-      border-color: rgba(v.$color-white, 0.12);
-    }
+    .plans__feature { color: rgba(v.$color-white, 0.85); svg { stroke: v.$color-accent-400; } }
+    .plans__features { border-color: rgba(v.$color-white, 0.12); }
   }
 }
 
@@ -82,11 +70,7 @@
   margin-bottom: v.$spacing-3;
 }
 
-.plans__sub {
-  font-size: v.$font-size-sm;
-  color: v.$color-neutral-600;
-  line-height: v.$line-height-relaxed;
-}
+.plans__sub { font-size: v.$font-size-sm; color: v.$color-neutral-600; line-height: v.$line-height-relaxed; }
 
 .plans__features {
   display: flex;
@@ -127,10 +111,7 @@
     transform: translateY(-2px);
   }
 
-  &:focus-visible {
-    outline: 2px solid v.$color-primary-400;
-    outline-offset: 2px;
-  }
+  &:focus-visible { outline: 2px solid v.$color-primary-400; outline-offset: 2px; }
 
   &--highlight {
     background: v.$color-accent-500;

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { HeroComponent }            from '../../components/hero/hero.component';
-import { WhatIsBeccafactComponent } from '../../components/what-is-beccafact/what-is-beccafact.component';
-import { BenefitsComponent }        from '../../components/benefits/benefits.component';
-import { HowItWorksComponent }      from '../../components/how-it-works/how-it-works.component';
-import { PlansComponent }           from '../../components/plans/plans.component';
-import { CtaComponent }             from '../../components/cta/cta.component';
+import { HeroComponent }              from '../../components/hero/hero.component';
+import { WhatIsBeccafactComponent }   from '../../components/what-is-beccafact/what-is-beccafact.component';
+import { IntegrationModelComponent }  from '../../components/integration-model/integration-model.component';
+import { BenefitsComponent }          from '../../components/benefits/benefits.component';
+import { HowItWorksComponent }        from '../../components/how-it-works/how-it-works.component';
+import { PlansComponent }             from '../../components/plans/plans.component';
+import { CtaComponent }               from '../../components/cta/cta.component';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { CtaComponent }             from '../../components/cta/cta.component';
   imports: [
     HeroComponent,
     WhatIsBeccafactComponent,
+    IntegrationModelComponent,
     BenefitsComponent,
     HowItWorksComponent,
     PlansComponent,
@@ -20,6 +22,7 @@ import { CtaComponent }             from '../../components/cta/cta.component';
   template: `
     <app-hero />
     <app-what-is-beccafact />
+    <app-integration-model />
     <app-benefits />
     <app-how-it-works />
     <app-plans />

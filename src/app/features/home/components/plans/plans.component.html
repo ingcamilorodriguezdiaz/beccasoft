@@ -4,19 +4,17 @@
       <span class="section-header__label">Planes y tarifas</span>
       <h2 class="section-header__title">Elija el plan ideal para su <span class="text-gradient">empresa</span></h2>
       <p class="section-header__subtitle">
-        Todos los planes incluyen activación ante la DIAN, actualizaciones normativas automáticas
-        y soporte técnico especializado.
+        Todos los planes incluyen integración con proveedor autorizado DIAN,
+        actualizaciones normativas automáticas y soporte técnico especializado.
       </p>
     </div>
 
     <div class="plans__grid">
       @for (plan of plans; track plan.name; let i = $index) {
-        <div
-          class="plans__card"
+        <div class="plans__card"
           [class.plans__card--highlight]="plan.highlight"
-          appScrollAnimation
-          [animDelay]="(i * 0.12) + 's'"
-        >
+          appScrollAnimation [animDelay]="(i * 0.12) + 's'">
+
           @if (plan.badge) {
             <div class="plans__badge">{{ plan.badge }}</div>
           }
@@ -45,8 +43,7 @@
     </div>
 
     <p class="plans__disclaimer" appScrollAnimation>
-      * Los precios varían según el volumen de documentos y requerimientos específicos.
-      Solicite una cotización personalizada sin compromiso.
+      * Precios según volumen y requerimientos específicos de integración. Solicite una cotización personalizada.
     </p>
   </div>
 </section>

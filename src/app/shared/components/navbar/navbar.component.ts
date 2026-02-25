@@ -10,15 +10,16 @@ import { ScrollService } from '../../../core/services/scroll.service';
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
-  isScrolled = signal(false);
-  isMobileMenuOpen = signal(false);
+  isScrolled        = signal(false);
+  isMobileMenuOpen  = signal(false);
 
   navLinks = [
-    { label: 'Inicio',     fragment: 'inicio' },
-    { label: 'BeccaFact',  fragment: 'beccafact' },
-    { label: 'Beneficios', fragment: 'beneficios' },
-    { label: 'Planes',     fragment: 'planes' },
-    { label: 'Contacto',   fragment: 'contacto-footer' },
+    { label: 'Inicio',          fragment: 'inicio' },
+    { label: 'BeccaFact',       fragment: 'beccafact' },
+    { label: 'Integraciones',   fragment: 'integraciones' },
+    { label: 'Beneficios',      fragment: 'beneficios' },
+    { label: 'Planes',          fragment: 'planes' },
+    { label: 'Contacto',        fragment: 'contacto-footer' },
   ];
 
   constructor(private scrollService: ScrollService) {}
@@ -28,13 +29,8 @@ export class NavbarComponent {
     this.isScrolled.set(window.scrollY > 20);
   }
 
-  toggleMobileMenu(): void {
-    this.isMobileMenuOpen.update((v) => !v);
-  }
-
-  closeMobileMenu(): void {
-    this.isMobileMenuOpen.set(false);
-  }
+  toggleMobileMenu(): void { this.isMobileMenuOpen.update(v => !v); }
+  closeMobileMenu(): void  { this.isMobileMenuOpen.set(false); }
 
   goTo(fragment: string): void {
     this.scrollService.scrollToSection(fragment);

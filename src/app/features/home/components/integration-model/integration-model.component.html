@@ -1,0 +1,71 @@
+<section class="intmodel section" id="integraciones">
+  <div class="container">
+    <div class="section-header" appScrollAnimation>
+      <span class="section-header__label">Modelo de integración</span>
+      <h2 class="section-header__title">Cómo conectamos su empresa con la <span class="text-gradient">DIAN</span></h2>
+      <p class="section-header__subtitle">
+        Actuamos como la capa de integración tecnológica entre su empresa y el proveedor
+        tecnológico autorizado por la DIAN, garantizando cumplimiento normativo sin
+        que su equipo tenga que gestionarlo directamente.
+      </p>
+    </div>
+
+    <!-- Diagrama de flujo -->
+    <div class="intmodel__flow" appScrollAnimation animDelay="0.15s" role="img" aria-label="Diagrama del modelo de integración">
+      @for (step of steps; track step.number; let i = $index; let last = $last) {
+        <div class="intmodel__node" [class.intmodel__node--highlight]="step.highlight">
+          <div class="intmodel__node-number">{{ step.number }}</div>
+          <div class="intmodel__node-icon" [class.intmodel__node-icon--accent]="step.color === 'accent'" [innerHTML]="step.icon"></div>
+          <div class="intmodel__node-body">
+            <h3 class="intmodel__node-label">{{ step.label }}</h3>
+            @if (step.sublabel) {
+              <span class="intmodel__node-sublabel">{{ step.sublabel }}</span>
+            }
+            <p class="intmodel__node-desc">{{ step.description }}</p>
+          </div>
+        </div>
+
+        @if (!last) {
+          <div class="intmodel__arrow" aria-hidden="true">
+            <div class="intmodel__arrow-line"></div>
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+              <path d="M1 1l10 9-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        }
+      }
+    </div>
+
+    <!-- Nota aclaratoria -->
+    <div class="intmodel__note" appScrollAnimation animDelay="0.3s">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <p>
+        <strong>Beccasoft actúa como integrador tecnológico.</strong>
+        La emisión electrónica se realiza a través de un proveedor tecnológico autorizado por la DIAN.
+        BeccaFact es la plataforma que orquesta esta integración.
+      </p>
+    </div>
+
+    <!-- Ventajas del modelo -->
+    <div class="intmodel__advantages" appScrollAnimation animDelay="0.2s">
+      <div class="intmodel__adv-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Su empresa no necesita gestionar la relación directa con la DIAN
+      </div>
+      <div class="intmodel__adv-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Actualizaciones normativas automáticas sin intervención de su equipo
+      </div>
+      <div class="intmodel__adv-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Integración con cualquier sistema existente (ERP, CRM, e-commerce)
+      </div>
+      <div class="intmodel__adv-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Monitoreo, alertas y trazabilidad de todos los documentos emitidos
+      </div>
+    </div>
+  </div>
+</section>

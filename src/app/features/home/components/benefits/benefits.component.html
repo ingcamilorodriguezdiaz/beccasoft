@@ -2,37 +2,33 @@
   <div class="container">
     <div class="benefits__layout">
 
-      <!-- Columna izquierda: header -->
       <div class="benefits__header" appScrollAnimation>
         <span class="section-header__label">Por qué elegirnos</span>
         <h2 class="benefits__title">
-          Beneficios que <span class="text-gradient">transforman</span> su empresa
+          Beneficios reales de trabajar con un <span class="text-gradient">integrador experto</span>
         </h2>
         <p class="benefits__subtitle">
-          Más de 500 empresas colombianas confían en BeccaFact para gestionar su facturación
-          electrónica de manera eficiente, segura y conforme a la normativa DIAN.
+          No solo conectamos su empresa a la facturación electrónica. Diseñamos,
+          implementamos y mantenemos la integración completa para que usted se enfoque
+          en su negocio.
         </p>
         <div class="benefits__metrics">
+          <div class="benefits__metric">
+            <span class="benefits__metric-value">+500</span>
+            <span class="benefits__metric-label">Empresas integradas exitosamente</span>
+          </div>
           <div class="benefits__metric">
             <span class="benefits__metric-value">98%</span>
             <span class="benefits__metric-label">Tasa de aprobación en primer envío DIAN</span>
           </div>
-          <div class="benefits__metric">
-            <span class="benefits__metric-value">3 h</span>
-            <span class="benefits__metric-label">Tiempo promedio de implementación inicial</span>
-          </div>
         </div>
       </div>
 
-      <!-- Columna derecha: lista -->
       <div class="benefits__list">
         @for (b of benefits; track b.title; let i = $index) {
-          <div
-            class="benefits__item"
+          <div class="benefits__item"
             [class.benefits__item--accent]="b.variant === 'accent'"
-            appScrollAnimation
-            [animDelay]="(i * 0.1) + 's'"
-          >
+            appScrollAnimation [animDelay]="(i * 0.09) + 's'">
             <div class="benefits__item-icon" [innerHTML]="b.icon"></div>
             <div class="benefits__item-body">
               <h3 class="benefits__item-title">{{ b.title }}</h3>

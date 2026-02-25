@@ -1,42 +1,41 @@
 # Beccasoft — Sitio Corporativo Angular 20
 
-Sitio web corporativo de **Beccasoft**, landing comercial de
-[BeccaFact](https://beccafact.com), software SaaS de facturación electrónica en Colombia.
+Sitio web corporativo de **Beccasoft**, integrador tecnológico especializado en facturación
+electrónica para empresas colombianas.
+
+Producto principal: **[BeccaFact](https://beccafact.com)** — Mini ERP SaaS de integración
+y gestión empresarial.
+
+> **Nota conceptual:** Beccasoft es **integrador tecnológico**, no proveedor autorizado DIAN.
+> La emisión electrónica se realiza a través de un proveedor tecnológico autorizado mediante API.
 
 ---
 
 ## Requisitos
 
-| Herramienta   | Versión mínima |
-|---------------|---------------|
-| Node.js       | 20.x LTS      |
-| npm           | 10.x          |
-| Angular CLI   | 20.3.x        |
+| Herramienta | Versión |
+|-------------|---------|
+| Node.js     | 20.x LTS |
+| npm         | 10.x    |
+| Angular CLI | 20.3.x  |
 
 ---
 
-## Instalación paso a paso
+## Instalación
 
 ```bash
-# 1. Instalar Node 20 con nvm (Linux/macOS)
+# 1. Node 20 con nvm
 nvm install 20
 nvm use 20
-nvm alias default 20
 
-# Verificar
-node -v   # v20.x.x
-npm  -v   # 10.x.x
-
-# 2. Instalar Angular CLI globalmente
+# 2. Angular CLI global
 npm install -g @angular/cli@20
 
-# 3. Entrar al proyecto
+# 3. Instalar dependencias
 cd beccasoft
-
-# 4. Instalar dependencias
 npm install
 
-# 5. Iniciar servidor de desarrollo
+# 4. Servidor de desarrollo
 ng serve --open
 # → http://localhost:4200
 ```
@@ -45,97 +44,84 @@ ng serve --open
 
 ## Scripts
 
-| Comando              | Descripción                         |
-|----------------------|-------------------------------------|
-| `ng serve`           | Servidor dev (puerto 4200)          |
-| `ng build`           | Build de producción                 |
-| `npm run build:prod` | Build optimizado para producción    |
-| `ng build --watch`   | Build con recarga automática        |
+| Comando             | Descripción                      |
+|---------------------|----------------------------------|
+| `ng serve`          | Dev server (puerto 4200)         |
+| `ng build`          | Build de producción              |
+| `npm run build:prod`| Build optimizado                 |
 
 ---
 
-## Estructura del proyecto
+## Estructura
 
 ```
 beccasoft/
-├── angular.json                   # Configuración Angular CLI
-├── package.json                   # Dependencias
-├── tsconfig.json                  # TypeScript base
-├── tsconfig.app.json              # TypeScript app
-├── tsconfig.spec.json             # TypeScript tests
+├── angular.json
+├── package.json
+├── .nvmrc                              # Node 20
+├── tsconfig.json / tsconfig.app.json
 ├── public/
-│   └── favicon.svg                # Favicon SVG
+│   └── favicon.svg
 └── src/
-    ├── index.html                 # HTML + SEO meta tags
-    ├── main.ts                    # Bootstrap
+    ├── index.html                      # SEO + Google Fonts
+    ├── main.ts
     ├── environments/
-    │   ├── environment.ts         # Dev
+    │   ├── environment.ts
     │   └── environment.production.ts
     ├── styles/
-    │   ├── _variables.scss        # Design tokens (colores, tipografía, espaciado)
-    │   ├── _mixins.scss           # Mixins SCSS reutilizables
-    │   ├── base.scss              # Reset + clases globales (.btn, .container, etc.)
-    │   └── main.scss              # Entry point global
+    │   ├── _variables.scss             # Design tokens
+    │   ├── _mixins.scss                # Mixins + keyframes
+    │   ├── base.scss                   # Reset + clases globales
+    │   └── main.scss                   # Entry point
     └── app/
-        ├── app.component.ts       # Componente raíz
-        ├── app.config.ts          # Providers (Router, etc.)
-        ├── app.routes.ts          # Rutas con lazy loading
+        ├── app.component.ts
+        ├── app.config.ts
+        ├── app.routes.ts
         ├── core/
-        │   ├── services/
-        │   │   └── scroll.service.ts      # Servicio de scroll suave
-        │   └── guards/
-        │       └── home.guard.ts          # Guard de ruta (extensible)
+        │   ├── services/scroll.service.ts
+        │   └── guards/home.guard.ts
         ├── shared/
         │   ├── components/
-        │   │   ├── navbar/                # Navbar fija, responsive, scroll-aware
-        │   │   └── footer/                # Footer corporativo completo
+        │   │   ├── navbar/             # Navbar fija con scroll detection
+        │   │   └── footer/             # Footer + aviso legal integrador
         │   └── directives/
-        │       └── scroll-animation.directive.ts  # Animación fadeInUp al hacer scroll
+        │       └── scroll-animation.directive.ts
         └── features/
             ├── home/
             │   ├── components/
-            │   │   ├── hero/              # Hero section con dashboard animado
-            │   │   ├── what-is-beccafact/ # ¿Qué es BeccaFact? (6 features)
-            │   │   ├── benefits/          # Beneficios (layout sticky)
-            │   │   ├── how-it-works/      # 4 pasos de implementación
-            │   │   ├── plans/             # 3 planes (Pyme, Empresarial, Personalizado)
-            │   │   └── cta/               # CTA principal fondo azul oscuro
-            │   └── pages/
-            │       └── home/              # Página ensambladora de la landing
-            └── contact/                   # Página de contacto
+            │   │   ├── hero/                  # Hero con dashboard animado
+            │   │   ├── what-is-beccafact/     # Mini ERP SaaS
+            │   │   ├── integration-model/     # Diagrama: Cliente → Beccasoft → Proveedor → DIAN
+            │   │   ├── benefits/              # 6 beneficios
+            │   │   ├── how-it-works/          # 4 pasos de integración
+            │   │   ├── plans/                 # 3 planes
+            │   │   └── cta/                   # CTA principal
+            │   └── pages/home/
+            └── contact/                       # Página de contacto
 ```
 
 ---
 
-## Solución de errores comunes
+## Posicionamiento de marca
 
-### Error: `Can't find stylesheet to import`
-El proyecto usa `includePaths: ["src"]` en `angular.json`.
-Todos los SCSS de componentes importan con:
-```scss
-@use 'styles/variables' as v;
-@use 'styles/mixins' as m;
-```
-
-### Error: `RouterLinkActive is not used`
-Eliminado en la versión corregida. El navbar solo usa `RouterLink`.
-
-### Error: `CSS nesting syntax` en `contact.component`
-Los estilos del componente de contacto ahora están en un archivo `.scss` externo
-con clases BEM planas (sin `&__` que cause conflictos con CSS nativo).
+| Concepto         | Descripción |
+|------------------|-------------|
+| **Beccasoft**    | Integrador tecnológico de facturación electrónica |
+| **BeccaFact**    | Plataforma SaaS (Mini ERP) desarrollada por Beccasoft |
+| **Rol DIAN**     | Integra con proveedor autorizado vía API (NO es emisor directo) |
+| **Diferencial**  | Automatización, integración a medida, gestión empresarial |
 
 ---
 
-## Tecnologías
+## Correcciones técnicas incluidas
 
-- **Angular 20.3** — Standalone components, Lazy loading, Signals
-- **SCSS** — Variables, Mixins, BEM
-- **IntersectionObserver** — Animaciones scroll via directiva
-- **CSS Grid + Flexbox** — Layouts responsivos
-- **Mobile first** — Breakpoints: 576 / 768 / 1024 / 1280 px
-- **SEO básico** — Meta tags, Open Graph, structured data
+- `includePaths: ["src"]` en `angular.json` → todos los SCSS usan `@use 'styles/variables' as v`
+- Sin `RouterLinkActive` (no se usa)
+- Estilos de componentes en archivos `.scss` externos (sin inline BEM)
+- Sin `mixed-decls` deprecation en SCSS
+- Standalone components + lazy loading
+- Guard funcional en ruta raíz
 
 ---
 
 *Beccasoft SAS · Colombia · [beccasoft.com](https://beccasoft.com)*
-# beccasoft

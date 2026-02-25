@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ScrollService {
-  /**
-   * Hace scroll suave a un elemento por su ID,
-   * compensando la altura del navbar fijo.
-   */
   scrollToSection(fragment: string, offset = 80): void {
     if (!fragment) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

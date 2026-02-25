@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer__grid">
 
-        <!-- Columna brand -->
+        <!-- Brand -->
         <div class="footer__brand">
           <a class="footer__logo" routerLink="/" aria-label="Beccasoft">
             <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
@@ -16,8 +16,8 @@
           </a>
 
           <p class="footer__tagline">
-            Empresa tecnológica especializada en integración de facturación electrónica para
-            empresas colombianas. Proveedor tecnológico habilitado ante la DIAN.
+            Integrador tecnológico especializado en facturación electrónica y automatización
+            empresarial para empresas colombianas.
           </p>
 
           <div class="footer__contact">
@@ -27,12 +27,18 @@
               </svg>
               WhatsApp Empresarial
             </a>
-            <a [href]="'mailto:' + EMAIL" class="footer__contact-link">
+            <a [href]="'mailto:' + EMAIL_VENTAS" class="footer__contact-link">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>
               </svg>
-              {{ EMAIL }}
+              {{ EMAIL_VENTAS }}
+            </a>
+            <a [href]="'mailto:' + EMAIL_SOPORTE" class="footer__contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              {{ EMAIL_SOPORTE }}
             </a>
           </div>
         </div>
@@ -57,26 +63,20 @@
           <ul role="list">
             @for (item of company; track item.label) {
               <li>
-                <button class="footer__link" (click)="goTo(item.fragment)">
-                  {{ item.label }}
-                </button>
+                <button class="footer__link" (click)="goTo(item.fragment)">{{ item.label }}</button>
               </li>
             }
           </ul>
         </div>
 
-        <!-- BeccaFact CTA -->
+        <!-- BeccaFact -->
         <div class="footer__col">
           <h4 class="footer__col-title">BeccaFact</h4>
           <p class="footer__col-text">
-            Acceda al sistema de facturación electrónica más completo de Colombia.
+            Acceda a la plataforma de integración y gestión empresarial desarrollada por Beccasoft.
           </p>
-          <a
-            [href]="BECCAFACT_URL"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--primary btn--sm footer__cta-btn"
-          >
+          <a [href]="BECCAFACT_URL" target="_blank" rel="noopener noreferrer"
+            class="btn btn--primary btn--sm footer__cta-btn">
             Ir a beccafact.com
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -84,13 +84,22 @@
               <line x1="10" y1="14" x2="21" y2="3"/>
             </svg>
           </a>
-          <div class="footer__dian">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            Proveedor habilitado DIAN
-          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso legal integrador -->
+  <div class="footer__legal-notice">
+    <div class="container">
+      <div class="footer__legal-notice-inner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <p>
+          <strong>Aviso legal:</strong> Beccasoft actúa como integrador tecnológico.
+          La emisión electrónica de documentos se realiza a través de un proveedor tecnológico autorizado por la DIAN.
+        </p>
       </div>
     </div>
   </div>
@@ -99,13 +108,11 @@
   <div class="footer__bottom">
     <div class="container">
       <div class="footer__bottom-inner">
-        <p class="footer__copy">
-          &copy; {{ currentYear }} Beccasoft SAS. Todos los derechos reservados.
-        </p>
-        <div class="footer__legal">
-          <a routerLink="/privacidad" class="footer__legal-link">Política de privacidad</a>
-          <a routerLink="/terminos"   class="footer__legal-link">Términos y condiciones</a>
-          <a routerLink="/habeas-data" class="footer__legal-link">Tratamiento de datos</a>
+        <p class="footer__copy">&copy; {{ currentYear }} Beccasoft SAS. Todos los derechos reservados.</p>
+        <div class="footer__bottom-links">
+          <a routerLink="/privacidad"   class="footer__bottom-link">Política de privacidad</a>
+          <a routerLink="/terminos"     class="footer__bottom-link">Términos y condiciones</a>
+          <a routerLink="/habeas-data"  class="footer__bottom-link">Tratamiento de datos</a>
         </div>
       </div>
     </div>

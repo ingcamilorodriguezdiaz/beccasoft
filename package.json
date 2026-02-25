@@ -1,7 +1,7 @@
 {
   "name": "beccasoft",
   "version": "1.0.0",
-  "description": "Sitio corporativo Beccasoft - Facturación electrónica Colombia",
+  "description": "Sitio corporativo Beccasoft — Integrador de facturación electrónica en Colombia",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"

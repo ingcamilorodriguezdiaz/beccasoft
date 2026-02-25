@@ -1,5 +1,4 @@
 <section class="hero" id="inicio" aria-label="Inicio - Beccasoft">
-  <!-- Background decorativo -->
   <div class="hero__bg" aria-hidden="true">
     <div class="hero__bg-grid"></div>
     <div class="hero__bg-orb hero__bg-orb--1"></div>
@@ -10,55 +9,50 @@
   <div class="container">
     <div class="hero__layout">
 
-      <!-- Texto principal -->
+      <!-- Texto -->
       <div class="hero__text" appScrollAnimation animDelay="0.1s">
         <div class="hero__badge">
           <span class="hero__badge-dot" aria-hidden="true"></span>
-          Conectado con la DIAN &middot; Colombia
+          Integrador tecnológico · Colombia
         </div>
 
         <h1 class="hero__title">
-          Soluciones de
+          Integración Inteligente de
           <span class="hero__title-accent">Facturación Electrónica</span>
           para Empresas Colombianas
         </h1>
 
         <p class="hero__subtitle">
-          Integramos su empresa con la DIAN de forma segura, automatizada y sin complicaciones.
-          BeccaFact es el SaaS empresarial que transforma su operación contable.
+          Conectamos su empresa con un proveedor tecnológico autorizado por la DIAN
+          mediante integraciones API seguras, automatizadas y a medida.
         </p>
 
         <div class="hero__actions">
-          <a
-            href="https://beccafact.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn--primary btn--lg hero__btn-primary"
-            aria-label="Ingresar a la plataforma BeccaFact"
-          >
+          <a href="https://beccafact.com" target="_blank" rel="noopener noreferrer"
+            class="btn btn--primary btn--lg hero__btn-primary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
               <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
               <polyline points="10 17 15 12 10 7"/>
               <line x1="15" y1="12" x2="3" y2="12"/>
             </svg>
-            Ingresar a la Plataforma
+            Acceder a BeccaFact
           </a>
           <button class="btn btn--secondary btn--lg" (click)="scrollToContact()">
             Solicitar Asesoría
           </button>
         </div>
 
-        <div class="hero__trust" aria-label="Credenciales de confianza">
+        <div class="hero__trust">
           <div class="hero__trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
             </svg>
-            Resolución DIAN vigente
+            API con proveedor autorizado DIAN
           </div>
           <div class="hero__trust-item">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
             Datos cifrados SSL 256-bit
           </div>
@@ -66,7 +60,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <polyline points="20 6 9 17 4 12"/>
             </svg>
-            Proveedor tecnológico habilitado
+            Cumplimiento normativo garantizado
           </div>
         </div>
       </div>
@@ -78,7 +72,7 @@
             <div class="hero__card-dots">
               <span></span><span></span><span></span>
             </div>
-            <span class="hero__card-label">BeccaFact Dashboard</span>
+            <span class="hero__card-label">BeccaFact · Panel de Integración</span>
           </div>
           <div class="hero__card-body">
             <div class="hero__stat-row">
@@ -89,57 +83,53 @@
               </div>
               <div class="hero__stat-box">
                 <span class="hero__stat-value">1,284</span>
-                <span class="hero__stat-label">Facturas emitidas</span>
+                <span class="hero__stat-label">Docs. procesados</span>
               </div>
             </div>
             <div class="hero__chart">
               @for (bar of chartBars; track $index) {
-                <div
-                  class="hero__chart-bar"
+                <div class="hero__chart-bar"
                   [style.height.%]="bar"
-                  [style.animation-delay]="$index * 0.06 + 's'"
-                ></div>
+                  [style.animation-delay]="$index * 0.06 + 's'">
+                </div>
               }
             </div>
             <div class="hero__status-row">
               <div class="hero__status">
                 <span class="hero__status-dot hero__status-dot--pulse"></span>
-                DIAN conectada
+                API DIAN conectada
               </div>
               <div class="hero__status">
                 <span class="hero__status-dot hero__status-dot--green"></span>
-                Sistema operativo
+                Integración activa
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tarjeta flotante 1 -->
         <div class="hero__float hero__float--1">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00c6a0" stroke-width="2">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
           <div>
-            <div class="hero__float-title">Factura aprobada</div>
-            <div class="hero__float-sub">FE-0001-2851 · DIAN</div>
+            <div class="hero__float-title">Factura transmitida</div>
+            <div class="hero__float-sub">FE-0001-2851 · Aprobada DIAN</div>
           </div>
         </div>
 
-        <!-- Tarjeta flotante 2 -->
         <div class="hero__float hero__float--2">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6fa0e0" stroke-width="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
           <div>
-            <div class="hero__float-title">Nómina enviada</div>
-            <div class="hero__float-sub">Período jul 2025</div>
+            <div class="hero__float-title">Integración API activa</div>
+            <div class="hero__float-sub">Proveedor autorizado DIAN</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Barra de estadísticas -->
     <div class="hero__stats" appScrollAnimation animDelay="0.5s">
       @for (stat of stats; track stat.label) {
         <div class="hero__stats-item">

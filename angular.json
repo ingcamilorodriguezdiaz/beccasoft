@@ -24,10 +24,8 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
+              { "glob": "**/*", "input": "public" },
+              { "glob": "**/*", "input": "src/assets", "output": "assets" }
             ],
             "styles": ["src/styles/main.scss"],
             "scripts": [],
@@ -38,16 +36,8 @@
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
+                { "type": "initial", "maximumWarning": "500kB", "maximumError": "1MB" },
+                { "type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB" }
               ],
               "outputHashing": "all"
             },
@@ -62,12 +52,8 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "beccasoft:build:production"
-            },
-            "development": {
-              "buildTarget": "beccasoft:build:development"
-            }
+            "production": { "buildTarget": "beccasoft:build:production" },
+            "development": { "buildTarget": "beccasoft:build:development" }
           },
           "defaultConfiguration": "development"
         },
@@ -76,12 +62,6 @@
           "options": {
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
             "styles": ["src/styles/main.scss"],
             "scripts": []
           }

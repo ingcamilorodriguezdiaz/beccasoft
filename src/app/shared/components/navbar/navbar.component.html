@@ -1,0 +1,89 @@
+<nav class="navbar" [class.navbar--scrolled]="isScrolled()" role="navigation" aria-label="Navegación principal">
+  <div class="navbar__container">
+
+    <!-- Logo -->
+    <a class="navbar__logo" routerLink="/" aria-label="Beccasoft - Inicio">
+      <div class="navbar__logo-icon" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="10" fill="#1a407e"/>
+          <path d="M8 10h10a6 6 0 0 1 0 12H8V10z" fill="#00c6a0"/>
+          <path d="M8 22h12a4 4 0 0 1 0 8H8V22z" fill="#ffffff" opacity="0.9"/>
+          <rect x="20" y="10" width="8" height="3" rx="1.5" fill="#ffffff" opacity="0.5"/>
+        </svg>
+      </div>
+      <span class="navbar__logo-text">Becca<strong>soft</strong></span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="navbar__links" role="list">
+      @for (link of navLinks; track link.label) {
+        <li>
+          <button class="navbar__link" (click)="goTo(link.fragment)" [attr.aria-label]="'Ir a ' + link.label">
+            {{ link.label }}
+          </button>
+        </li>
+      }
+    </ul>
+
+    <!-- Desktop actions -->
+    <div class="navbar__actions">
+      <a
+        href="https://beccafact.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--secondary btn--sm"
+      >
+        Diagnóstico Gratuito
+      </a>
+      <a
+        href="https://beccafact.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--primary btn--sm"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+          <polyline points="10 17 15 12 10 7"/>
+          <line x1="15" y1="12" x2="3" y2="12"/>
+        </svg>
+        Ingresar a BeccaFact
+      </a>
+    </div>
+
+    <!-- Hamburger mobile -->
+    <button
+      class="navbar__hamburger"
+      [class.navbar__hamburger--open]="isMobileMenuOpen()"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      aria-label="Abrir menú"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (isMobileMenuOpen()) {
+    <div class="navbar__mobile" role="dialog" aria-label="Menú móvil">
+      <ul role="list">
+        @for (link of navLinks; track link.label) {
+          <li>
+            <button class="navbar__mobile-link" (click)="goTo(link.fragment)">
+              {{ link.label }}
+            </button>
+          </li>
+        }
+      </ul>
+      <div class="navbar__mobile-actions">
+        <a href="https://beccafact.com" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--full" (click)="closeMobileMenu()">
+          Diagnóstico Gratuito
+        </a>
+        <a href="https://beccafact.com" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--full" (click)="closeMobileMenu()">
+          Ingresar a BeccaFact
+        </a>
+      </div>
+    </div>
+  }
+</nav>

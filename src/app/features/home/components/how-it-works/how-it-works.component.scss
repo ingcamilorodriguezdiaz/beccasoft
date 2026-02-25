@@ -1,0 +1,115 @@
+@use 'styles/variables' as v;
+@use 'styles/mixins' as m;
+
+.hiw {
+  background: v.$color-neutral-50;
+}
+
+.hiw__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: v.$spacing-6;
+
+  @include m.respond-to('md') {
+    grid-template-columns: repeat(4, 1fr);
+    gap: v.$spacing-4;
+    align-items: start;
+  }
+}
+
+.hiw__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  @include m.respond-to('md') {
+    // Flecha entre pasos en desktop
+    &:not(:last-child)::after {
+      content: '›';
+      position: absolute;
+      right: calc(-#{v.$spacing-4} - 4px);
+      top: 60px;
+      font-size: v.$font-size-2xl;
+      color: v.$color-primary-200;
+      font-weight: v.$font-weight-light;
+      z-index: 2;
+    }
+  }
+}
+
+.hiw__step-number {
+  font-family: v.$font-display;
+  font-size: 5rem;
+  font-weight: v.$font-weight-extrabold;
+  color: v.$color-primary-100;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: v.$spacing-4;
+}
+
+.hiw__step-card {
+  background: v.$color-white;
+  border: 1px solid v.$color-neutral-200;
+  border-radius: v.$radius-xl;
+  padding: v.$spacing-8 v.$spacing-6;
+  text-align: center;
+  transition: v.$transition-base;
+  width: 100%;
+
+  &:hover {
+    border-color: v.$color-primary-200;
+    box-shadow: v.$shadow-xl;
+    transform: translateY(-4px);
+
+    .hiw__step-icon {
+      background: v.$color-accent-500;
+    }
+  }
+}
+
+.hiw__step-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto v.$spacing-5;
+  background: v.$color-primary-600;
+  color: v.$color-white;
+  border-radius: v.$radius-xl;
+  padding: v.$spacing-3;
+  transition: v.$transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.hiw__step-title {
+  font-family: v.$font-display;
+  font-size: v.$font-size-xl;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-primary-800;
+  margin-bottom: v.$spacing-3;
+}
+
+.hiw__step-desc {
+  font-size: v.$font-size-sm;
+  color: v.$color-neutral-600;
+  line-height: v.$line-height-relaxed;
+  margin-bottom: v.$spacing-5;
+}
+
+.hiw__step-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$spacing-2;
+  font-size: v.$font-size-xs;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-accent-500;
+  background: v.$color-accent-50;
+  padding: v.$spacing-1 v.$spacing-3;
+  border-radius: v.$radius-full;
+}

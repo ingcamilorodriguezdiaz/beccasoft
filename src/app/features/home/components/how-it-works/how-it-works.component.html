@@ -1,0 +1,32 @@
+<section class="hiw section" id="como-funciona">
+  <div class="container">
+    <div class="section-header" appScrollAnimation>
+      <span class="section-header__label">Proceso de implementación</span>
+      <h2 class="section-header__title">¿Cómo <span class="text-gradient">funciona</span>?</h2>
+      <p class="section-header__subtitle">
+        Un proceso estructurado que garantiza la activación exitosa de su facturación
+        electrónica ante la DIAN en el menor tiempo posible.
+      </p>
+    </div>
+
+    <div class="hiw__steps">
+      @for (step of steps; track step.number; let i = $index) {
+        <div class="hiw__step" appScrollAnimation [animDelay]="(i * 0.12) + 's'">
+          <div class="hiw__step-number" aria-hidden="true">{{ step.number }}</div>
+          <div class="hiw__step-card">
+            <div class="hiw__step-icon" [innerHTML]="step.icon" aria-hidden="true"></div>
+            <h3 class="hiw__step-title">{{ step.title }}</h3>
+            <p class="hiw__step-desc">{{ step.description }}</p>
+            <div class="hiw__step-duration">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              {{ step.duration }}
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

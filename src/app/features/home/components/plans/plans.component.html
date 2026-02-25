@@ -1,0 +1,52 @@
+<section class="plans section" id="planes">
+  <div class="container">
+    <div class="section-header" appScrollAnimation>
+      <span class="section-header__label">Planes y tarifas</span>
+      <h2 class="section-header__title">Elija el plan ideal para su <span class="text-gradient">empresa</span></h2>
+      <p class="section-header__subtitle">
+        Todos los planes incluyen activación ante la DIAN, actualizaciones normativas automáticas
+        y soporte técnico especializado.
+      </p>
+    </div>
+
+    <div class="plans__grid">
+      @for (plan of plans; track plan.name; let i = $index) {
+        <div
+          class="plans__card"
+          [class.plans__card--highlight]="plan.highlight"
+          appScrollAnimation
+          [animDelay]="(i * 0.12) + 's'"
+        >
+          @if (plan.badge) {
+            <div class="plans__badge">{{ plan.badge }}</div>
+          }
+
+          <div class="plans__card-top">
+            <h3 class="plans__name">{{ plan.name }}</h3>
+            <p class="plans__sub">{{ plan.subtitle }}</p>
+          </div>
+
+          <ul class="plans__features" role="list">
+            @for (feature of plan.features; track feature) {
+              <li class="plans__feature">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {{ feature }}
+              </li>
+            }
+          </ul>
+
+          <button class="plans__cta" [class.plans__cta--highlight]="plan.highlight">
+            {{ plan.cta }}
+          </button>
+        </div>
+      }
+    </div>
+
+    <p class="plans__disclaimer" appScrollAnimation>
+      * Los precios varían según el volumen de documentos y requerimientos específicos.
+      Solicite una cotización personalizada sin compromiso.
+    </p>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+@use 'styles/variables' as v;
+@use 'styles/mixins' as m;
+
+.contact {
+  min-height: 100vh;
+  background: v.$color-neutral-50;
+  display: flex;
+  align-items: center;
+  padding-top: calc(#{v.$navbar-height} + #{v.$spacing-16});
+}
+
+.contact__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact__title {
+  font-family: v.$font-display;
+  font-size: v.$font-size-4xl;
+  font-weight: v.$font-weight-bold;
+  color: v.$color-primary-800;
+  margin-bottom: v.$spacing-4;
+}
+
+.contact__sub {
+  font-size: v.$font-size-lg;
+  color: v.$color-neutral-600;
+  line-height: v.$line-height-relaxed;
+  margin-bottom: v.$spacing-12;
+}
+
+.contact__options {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-4;
+  margin-bottom: v.$spacing-10;
+}
+
+.contact__option {
+  display: flex;
+  align-items: center;
+  gap: v.$spacing-5;
+  padding: v.$spacing-6 v.$spacing-8;
+  background: v.$color-white;
+  border: 1px solid v.$color-neutral-200;
+  border-radius: v.$radius-xl;
+  text-decoration: none;
+  text-align: left;
+  transition: v.$transition-base;
+
+  &:hover {
+    border-color: v.$color-primary-200;
+    box-shadow: v.$shadow-xl;
+    transform: translateY(-2px);
+  }
+}
+
+.contact__option-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: v.$radius-xl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact__option-icon--green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.contact__option-icon--blue {
+  background: v.$color-primary-50;
+  color: v.$color-primary-500;
+}
+
+.contact__option-title {
+  font-family: v.$font-display;
+  font-size: v.$font-size-lg;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-primary-800;
+  margin-bottom: v.$spacing-1;
+}
+
+.contact__option-subtitle {
+  font-size: v.$font-size-sm;
+  color: v.$color-neutral-500;
+}

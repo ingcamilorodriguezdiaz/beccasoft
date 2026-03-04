@@ -12,18 +12,18 @@ import { ScrollService } from '../../../core/services/scroll.service';
 export class FooterComponent {
   currentYear = new Date().getFullYear();
 
-  readonly BECCAFACT_URL    = 'https://beccafact.com';
-  readonly WHATSAPP_URL     = 'https://wa.me/573000000000?text=Hola%2C%20me%20interesa%20BeccaFact';
+  readonly BECCAFACT_URL    = 'https://www.beccafact.com';
+  readonly WHATSAPP_URL     = 'https://wa.me/573115907753?text=Hola%2C%20me%20interesa%20BeccaFact';
   readonly EMAIL_VENTAS     = 'ventas@beccasoft.com';
-  readonly EMAIL_SOPORTE    = 'soporte@beccasoft.com';
+  readonly EMAIL_SOPORTE    = 'info@beccasoft.com';
 
   solutions = [
-    { label: 'Facturación Electrónica', href: 'https://beccafact.com' },
-    { label: 'Integración de Inventario', href: 'https://beccafact.com' },
-    { label: 'Integración de Cartera', href: 'https://beccafact.com' },
-    { label: 'Nómina Electrónica', href: 'https://beccafact.com' },
-    { label: 'API de Integración', href: 'https://beccafact.com' },
-    { label: 'Dashboard Financiero', href: 'https://beccafact.com' },
+    { label: 'Facturación Electrónica', href: 'https://www.beccafact.com' },
+    { label: 'Integración de Inventario', href: 'https://www.beccafact.com' },
+    { label: 'Integración de Cartera', href: 'https://www.beccafact.com' },
+    { label: 'Nómina Electrónica', href: 'https://www.beccafact.com' },
+    { label: 'API de Integración', href: 'https://www.beccafact.com' },
+    { label: 'Dashboard Financiero', href: 'https://www.beccafact.com' },
   ];
 
   company = [

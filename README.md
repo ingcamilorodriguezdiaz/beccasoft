@@ -3,7 +3,7 @@
 Sitio web corporativo de **Beccasoft**, integrador tecnológico especializado en facturación
 electrónica para empresas colombianas.
 
-Producto principal: **[BeccaFact](https://beccafact.com)** — Mini ERP SaaS de integración
+Producto principal: **[BeccaFact](https://www.beccafact.com)** — Mini ERP SaaS de integración
 y gestión empresarial.
 
 > **Nota conceptual:** Beccasoft es **integrador tecnológico**, no proveedor autorizado DIAN.

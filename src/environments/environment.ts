@@ -1,5 +1,6 @@
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:3000/api/v1',
   beccafactUrl: 'https://www.beccafact.com',
   whatsappUrl: 'https://wa.me/573115907753',
   emailVentas: 'ventas@beccasoft.com',

@@ -11,34 +11,34 @@ import { ScrollAnimationDirective } from '../../../../shared/directives/scroll-a
 export class WhatIsBeccafactComponent {
   features = [
     {
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
-      title: 'Integración Facturación Electrónica',
-      description: 'Transmisión automática de facturas, notas crédito/débito y documentos soporte vía API con proveedor autorizado DIAN.',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"/></svg>`,
+      title: 'Facturación Electrónica DIAN',
+      description: 'Emite facturas de venta, notas crédito/débito y documentos soporte validados por la DIAN en segundos. Cumplimiento normativo garantizado y actualización automática.',
     },
     {
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`,
-      title: 'Integración de Inventario',
-      description: 'Gestión de productos y existencias sincronizada con la facturación, eliminando la duplicación de datos.',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>`,
+      title: 'Gestión de Inventario',
+      description: 'Controla tu catálogo de productos, stock en tiempo real y movimientos de inventario sincronizados automáticamente con cada factura emitida.',
+    },
+    {
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
+      title: 'Punto de Venta (POS)',
+      description: 'Caja registradora integrada con facturación electrónica. Apertura y cierre de caja, ventas rápidas, múltiples métodos de pago y generación automática de facturas.',
     },
     {
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
-      title: 'Integración de Cartera',
-      description: 'Control de cuentas por cobrar y pagar integrado con los documentos electrónicos emitidos.',
+      title: 'Cartera y Cobranza',
+      description: 'Gestión de cuentas por cobrar con análisis de envejecimiento, alertas de vencimiento y seguimiento detallado de pagos por cliente.',
     },
     {
       icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
-      title: 'Reportes Inteligentes',
-      description: 'Informes de facturación, inventario y cartera exportables en tiempo real para la toma de decisiones.',
+      title: 'Reportes y Analítica',
+      description: 'Dashboard financiero en tiempo real con reportes de facturación, nómina, inventario y cartera. Exportación a PDF y Excel con un clic.',
     },
     {
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
-      title: 'Dashboard Financiero',
-      description: 'Panel centralizado con indicadores clave: facturación, cartera, inventario y flujo de caja.',
-    },
-    {
-      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
-      title: 'Automatización Contable',
-      description: 'Generación automática de registros contables a partir de los documentos electrónicos integrados.',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>`,
+      title: 'Nómina Electrónica',
+      description: 'Liquidación de nómina conforme a la legislación colombiana con transmisión electrónica a la DIAN. Cálculo automático de prestaciones y seguridad social.',
     },
   ];
 }

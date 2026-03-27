@@ -11,10 +11,10 @@ import { ScrollAnimationDirective } from '../../../../shared/directives/scroll-a
 })
 export class HeroComponent {
   stats = [
-    { value: '+500',  label: 'Empresas integradas' },
-    { value: '99.9%', label: 'Uptime garantizado' },
-    { value: '+2M',   label: 'Documentos procesados' },
-    { value: '24/7',  label: 'Soporte técnico' },
+    { value: '+1.200',  label: 'Facturas procesadas' },
+    { value: '+80',     label: 'Empresas activas' },
+    { value: '99.9%',   label: 'Disponibilidad' },
+    { value: '<5 min',  label: 'Tiempo de soporte' },
   ];
 
   chartBars = [40, 65, 45, 80, 60, 90, 75, 95, 70, 88, 72, 100];

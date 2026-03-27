@@ -1,49 +1,133 @@
 <section class="plans section" id="planes">
   <div class="container">
+
     <div class="section-header" appScrollAnimation>
-      <span class="section-header__label">Planes y tarifas</span>
+      <span class="section-header__label">Planes y precios</span>
       <h2 class="section-header__title">Elija el plan ideal para su <span class="text-gradient">empresa</span></h2>
       <p class="section-header__subtitle">
-        Todos los planes incluyen integración con proveedor autorizado DIAN,
-        actualizaciones normativas automáticas y soporte técnico especializado.
+        Todos los planes incluyen facturación electrónica DIAN, actualizaciones normativas automáticas
+        y soporte técnico. Sin permanencia mínima.
       </p>
     </div>
 
-    <div class="plans__grid">
-      @for (plan of plans; track plan.name; let i = $index) {
-        <div class="plans__card"
-          [class.plans__card--highlight]="plan.highlight"
-          appScrollAnimation [animDelay]="(i * 0.12) + 's'">
-
-          @if (plan.badge) {
-            <div class="plans__badge">{{ plan.badge }}</div>
-          }
-
-          <div class="plans__card-top">
-            <h3 class="plans__name">{{ plan.name }}</h3>
-            <p class="plans__sub">{{ plan.subtitle }}</p>
-          </div>
-
-          <ul class="plans__features" role="list">
-            @for (feature of plan.features; track feature) {
-              <li class="plans__feature">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                {{ feature }}
-              </li>
-            }
-          </ul>
-
-          <button class="plans__cta" [class.plans__cta--highlight]="plan.highlight">
-            {{ plan.cta }}
-          </button>
-        </div>
-      }
+    <!-- Billing toggle -->
+    <div class="plans__billing-toggle" appScrollAnimation>
+      <span [class.plans__billing-option--active]="!billingAnnual()">Mensual</span>
+      <button
+        class="plans__toggle-btn"
+        [class.plans__toggle-btn--active]="billingAnnual()"
+        (click)="billingAnnual.set(!billingAnnual())"
+        type="button"
+        aria-label="Cambiar período de facturación">
+        <span class="plans__toggle-knob"></span>
+      </button>
+      <span [class.plans__billing-option--active]="billingAnnual()">
+        Anual
+        <span class="plans__billing-badge">−15%</span>
+      </span>
     </div>
 
-    <p class="plans__disclaimer" appScrollAnimation>
-      * Precios según volumen y requerimientos específicos de integración. Solicite una cotización personalizada.
-    </p>
+    <!-- Loading skeleton -->
+    @if (loading()) {
+      <div class="plans__grid">
+        @for (i of [1, 2, 3]; track i) {
+          <div class="plans__skeleton">
+            <div class="plans__skeleton-title"></div>
+            <div class="plans__skeleton-sub"></div>
+            @for (j of [1,2,3,4,5,6,7]; track j) {
+              <div class="plans__skeleton-row"></div>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Error state -->
+    @if (error() && !loading()) {
+      <div class="plans__error">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <p>No se pudieron cargar los planes. Por favor intente de nuevo o <a [href]="'mailto:ventas@beccasoft.com'">contáctenos</a>.</p>
+      </div>
+    }
+
+    <!-- Plans grid -->
+    @if (!loading() && !error()) {
+      <div class="plans__grid">
+        @for (plan of plans(); track plan.id; let i = $index) {
+          <div class="plans__card"
+            [class.plans__card--highlight]="plan.isHighlight"
+            appScrollAnimation [animDelay]="(i * 0.12) + 's'">
+
+            @if (plan.badge) {
+              <div class="plans__badge">{{ plan.badge }}</div>
+            }
+
+            <div class="plans__card-top">
+              <h3 class="plans__name">{{ plan.name }}</h3>
+              <p class="plans__sub">{{ plan.description }}</p>
+              <div class="plans__price">
+                <span class="plans__price-value">{{ displayPrice(plan) }}</span>
+                @if (plan.price > 0) {
+                  <span class="plans__price-period">/ mes</span>
+                }
+              </div>
+              @if (billingAnnual() && plan.price > 0) {
+                <p class="plans__price-note">Facturado anualmente · Ahorra 15%</p>
+              }
+            </div>
+
+            <ul class="plans__features" role="list">
+              @for (feature of plan.features; track feature.key) {
+                @if (feature.isFirstInGroup) {
+                  <li class="plans__feature-group-header" aria-hidden="true">
+                    {{ groupLabel(feature.group) }}
+                  </li>
+                }
+                <li class="plans__feature" [class.plans__feature--excluded]="!feature.included">
+                  @if (feature.included) {
+                    <svg class="plans__feature-icon plans__feature-icon--check"
+                         width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                  } @else {
+                    <svg class="plans__feature-icon plans__feature-icon--x"
+                         width="16" height="16" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  }
+                  <span class="plans__feature-label">{{ feature.label }}</span>
+                  @if (feature.displayValue) {
+                    <span class="plans__feature-value"
+                      [class.plans__feature-value--unlimited]="feature.displayValue === 'Ilimitado'">
+                      {{ feature.displayValue }}
+                    </span>
+                  }
+                </li>
+              }
+            </ul>
+
+            <a [href]="'https://wa.me/573115907753?text=Hola, me interesa el plan ' + plan.name + ' de BeccaFact'"
+               target="_blank" rel="noopener noreferrer"
+               class="plans__cta" [class.plans__cta--highlight]="plan.isHighlight">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.554 4.12 1.523 5.845L.057 23.57a.5.5 0 0 0 .572.635l5.938-1.388A11.935 11.935 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.725 9.725 0 0 1-4.97-1.362l-.355-.212-3.686.861.924-3.571-.231-.367A9.724 9.724 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+              </svg>
+              Comenzar ahora
+            </a>
+          </div>
+        }
+      </div>
+
+      <p class="plans__disclaimer" appScrollAnimation>
+        * Todos los precios en COP + IVA. Sin permanencia mínima. Puede cambiar o cancelar en cualquier momento.
+        Para empresas con requerimientos especiales, <a href="mailto:ventas@beccasoft.com">solicite una propuesta personalizada</a>.
+      </p>
+    }
+
   </div>
 </section>

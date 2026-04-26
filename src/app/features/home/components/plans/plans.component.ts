@@ -65,7 +65,7 @@ const VISIBLE_FEATURES = [
   'has_reports',
   'has_payroll',
   'has_pos',
-  'has_multicompany',
+  'has_branch',
   'bulk_import',
   'priority_support',
 ];

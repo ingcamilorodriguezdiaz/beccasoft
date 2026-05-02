@@ -287,7 +287,9 @@
   font-family: v.$font-display;
   font-size: v.$font-size-base;
   font-weight: v.$font-weight-semibold;
-  padding: v.$spacing-4;
+  /* min-height para área de toque táctil (44px mínimo recomendado) */
+  min-height: 48px;
+  padding: v.$spacing-3 v.$spacing-4;
   border-radius: v.$radius-lg;
   border: 1.5px solid v.$color-primary-300;
   background: transparent;

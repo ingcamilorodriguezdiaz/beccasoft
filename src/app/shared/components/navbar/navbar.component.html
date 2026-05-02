@@ -36,13 +36,20 @@
     </div>
 
     <button class="navbar__hamburger" [class.navbar__hamburger--open]="isMobileMenuOpen()"
-      (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen()" aria-label="Abrir menú">
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen()"
+      [attr.aria-label]="isMobileMenuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      aria-controls="navbar-mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 
   @if (isMobileMenuOpen()) {
-    <div class="navbar__mobile" role="dialog">
+    <div class="navbar__mobile"
+      id="navbar-mobile-menu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menú de navegación">
       <ul role="list">
         @for (link of navLinks; track link.label) {
           <li><button class="navbar__mobile-link" (click)="goTo(link.fragment)">{{ link.label }}</button></li>

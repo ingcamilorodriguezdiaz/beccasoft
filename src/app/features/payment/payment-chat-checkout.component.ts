@@ -185,13 +185,29 @@ declare global {
     }
 
     @media (max-width: 720px) {
+      .chat-checkout {
+        padding-top: 90px;
+      }
+
+      .chat-checkout__card {
+        padding: 20px;
+        border-radius: 24px;
+      }
+    }
+
+    @media (max-width: 560px) {
       .chat-checkout__summary {
+        /* 3 columnas no caben en móvil angosto: usar 1 columna */
         grid-template-columns: 1fr;
       }
 
       .chat-checkout__actions {
         display: grid;
         grid-template-columns: 1fr;
+      }
+
+      .chat-checkout__btn {
+        width: 100%;
       }
     }
   `],

@@ -10,8 +10,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: calc(#{v.$navbar-height} + #{v.$spacing-16});
-  padding-bottom: v.$spacing-16;
+  /* móvil usa navbar-height-mobile (64px) */
+  padding-top: calc(#{v.$navbar-height-mobile} + #{v.$spacing-12});
+  padding-bottom: v.$spacing-12;
+
+  @include m.respond-to('lg') {
+    padding-top: calc(#{v.$navbar-height} + #{v.$spacing-16});
+    padding-bottom: v.$spacing-16;
+  }
 }
 
 .hero__bg {
@@ -171,9 +177,17 @@
 // Visual
 .hero__visual {
   position: relative;
+  /* espacio extra para que los floats no se recorten */
+  padding-top: v.$spacing-6;
+  padding-bottom: v.$spacing-8;
+  /* evita que los floats generen scroll horizontal en móvil */
+  overflow: hidden;
 
   @include m.respond-to('lg') {
+    padding-top: 0;
     padding-right: v.$spacing-8;
+    padding-bottom: 0;
+    overflow: visible;
   }
 }
 
@@ -337,22 +351,21 @@
 
 .hero__float--1 {
   bottom: -20px;
-  left: -20px;
+  /* en móvil no sale del viewport */
+  left: 0;
   animation: float-anim 5s ease-in-out infinite;
 
-  @include m.respond-to('lg') {
-    left: -40px;
-  }
+  @include m.respond-to('md') { left: -20px; }
+  @include m.respond-to('lg') { left: -40px; }
 }
 
 .hero__float--2 {
   top: -20px;
-  right: -10px;
+  right: 0;
   animation: float-anim 6s ease-in-out 1s infinite;
 
-  @include m.respond-to('lg') {
-    right: -20px;
-  }
+  @include m.respond-to('md') { right: -10px; }
+  @include m.respond-to('lg') { right: -20px; }
 }
 
 .hero__float-title {
@@ -398,11 +411,13 @@
 .hero__stats-value {
   display: block;
   font-family: v.$font-display;
-  font-size: v.$font-size-3xl;
+  font-size: v.$font-size-2xl;
   font-weight: v.$font-weight-extrabold;
   color: v.$color-accent-400;
   line-height: 1;
   margin-bottom: v.$spacing-2;
+
+  @include m.respond-to('md') { font-size: v.$font-size-3xl; }
 }
 
 .hero__stats-label {

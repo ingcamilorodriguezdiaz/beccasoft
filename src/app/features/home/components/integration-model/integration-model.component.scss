@@ -42,7 +42,9 @@
 
 .intmodel__node {
   flex: 1;
-  max-width: 240px;
+  /* en móvil ocupa el ancho disponible */
+  width: 100%;
+  max-width: 100%;
   background: rgba(v.$color-white, 0.04);
   border: 1px solid rgba(v.$color-white, 0.08);
   border-radius: v.$radius-2xl;
@@ -54,6 +56,8 @@
   gap: v.$spacing-3;
   transition: v.$transition-base;
   position: relative;
+
+  @include m.respond-to('lg') { max-width: 240px; }
 
   &:hover {
     background: rgba(v.$color-white, 0.07);

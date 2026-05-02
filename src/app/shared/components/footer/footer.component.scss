@@ -118,11 +118,27 @@
   @include m.flex-between;
   flex-wrap: wrap;
   gap: v.$spacing-4;
+
+  /* en móvil muy pequeño: stack vertical centrado */
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .footer__copy { font-size: v.$font-size-sm; color: rgba(v.$color-white, 0.35); }
 
-.footer__bottom-links { display: flex; flex-wrap: wrap; gap: v.$spacing-4; }
+.footer__bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$spacing-4;
+
+  @media (max-width: 480px) {
+    justify-content: center;
+    gap: v.$spacing-3;
+  }
+}
 
 .footer__bottom-link {
   font-size: v.$font-size-sm;

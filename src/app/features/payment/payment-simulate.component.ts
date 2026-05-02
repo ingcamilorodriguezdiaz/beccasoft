@@ -126,6 +126,21 @@ import { environment } from '../../../environments/environment';
       color: #dc2626;
       font-size: 14px;
     }
+
+    @media (max-width: 480px) {
+      .payment-card {
+        padding: 32px 20px;
+        border-radius: 16px;
+      }
+
+      .payment-title {
+        font-size: 20px;
+      }
+
+      .confirm-btn {
+        font-size: 15px;
+      }
+    }
   `],
 })
 export class PaymentSimulateComponent implements OnInit {

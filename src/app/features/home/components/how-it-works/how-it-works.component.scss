@@ -8,10 +8,17 @@
   grid-template-columns: 1fr;
   gap: v.$spacing-6;
 
+  /* tablet: 2 columnas para evitar que los 4 pasos queden apretados */
   @include m.respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: v.$spacing-6;
+    align-items: start;
+  }
+
+  /* desktop: los 4 pasos en fila */
+  @include m.respond-to('lg') {
     grid-template-columns: repeat(4, 1fr);
     gap: v.$spacing-4;
-    align-items: start;
   }
 }
 
@@ -21,7 +28,8 @@
   align-items: center;
   position: relative;
 
-  @include m.respond-to('md') {
+  /* conector solo en desktop donde los 4 pasos están en fila */
+  @include m.respond-to('lg') {
     &:not(:last-child)::after {
       content: '›';
       position: absolute;

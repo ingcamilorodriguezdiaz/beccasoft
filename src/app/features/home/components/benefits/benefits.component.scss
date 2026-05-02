@@ -45,10 +45,15 @@
   display: flex;
   flex-direction: column;
   gap: v.$spacing-6;
-  padding: v.$spacing-8;
+  padding: v.$spacing-6 v.$spacing-8;
   background: v.$color-primary-50;
   border-radius: v.$radius-xl;
   border: 1px solid v.$color-primary-100;
+
+  /* en tablet sin sidebar: KPI en fila */
+  @media (min-width: v.$bp-sm) and (max-width: #{v.$bp-lg - 1px}) {
+    flex-direction: row;
+  }
 }
 
 .benefits__metric { display: flex; flex-direction: column; gap: v.$spacing-1; }

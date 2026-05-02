@@ -183,4 +183,40 @@
     padding: v.$spacing-5;
     gap: v.$spacing-4;
   }
+
+  .contact__sub {
+    font-size: v.$font-size-base;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    /* sin padding lateral — el inner ya tiene el suyo */
+    padding-left: v.$spacing-3;
+    padding-right: v.$spacing-3;
+  }
+
+  .contact__inner {
+    /* radio más pequeño en pantallas muy angostas */
+    border-radius: v.$radius-xl;
+    padding: v.$spacing-6 v.$spacing-4;
+  }
+
+  .contact__title {
+    font-size: 2rem;
+  }
+
+  .contact__option-icon {
+    width: 48px;
+    height: 48px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .contact__option {
+    padding: v.$spacing-4;
+  }
 }

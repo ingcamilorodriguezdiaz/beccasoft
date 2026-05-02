@@ -272,7 +272,8 @@ interface EpaycoReferenceStatus {
     .payment-response__meta-pill {
       display: grid;
       gap: 4px;
-      min-width: 180px;
+      min-width: min(180px, calc(50% - 8px));
+      flex: 1 1 180px;
       padding: 14px 16px;
       border-radius: 18px;
       border: 1px solid rgba(148, 163, 184, 0.22);
@@ -602,6 +603,19 @@ interface EpaycoReferenceStatus {
       .payment-response__hero,
       .payment-response__details-grid {
         grid-template-columns: 1fr;
+      }
+
+      .payment-response__badge {
+        /* en stack vertical el badge no necesita min-height alto */
+        min-height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .payment-response__badge strong {
+        font-size: 22px;
       }
     }
 

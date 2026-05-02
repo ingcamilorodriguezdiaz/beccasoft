@@ -1,11 +1,14 @@
 <section class="contact section">
   <div class="container">
     <div class="contact__inner">
-      <h1 class="contact__title">Contáctenos</h1>
-      <p class="contact__sub">
-        Nuestro equipo de integradores está listo para acompañarle en el proceso de
-        conexión de su empresa con la facturación electrónica.
-      </p>
+      <div class="contact__hero">
+        <span class="contact__eyebrow">Acompañamiento comercial</span>
+        <h1 class="contact__title">Contáctenos</h1>
+        <p class="contact__sub">
+          Nuestro equipo de integradores está listo para acompañarle en el proceso de
+          conexión de su empresa con la facturación electrónica.
+        </p>
+      </div>
 
       <div class="contact__options">
         <a [href]="WHATSAPP_URL" target="_blank" rel="noopener noreferrer" class="contact__option">
@@ -48,12 +51,18 @@
         </a>
       </div>
 
-      <a routerLink="/" class="btn btn--outline-dark">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <polyline points="15 18 9 12 15 6"/>
-        </svg>
-        Volver al inicio
-      </a>
+      <div class="contact__footer">
+        <p class="contact__footnote">
+          Si ya tiene una cotización o desea activar su plan hoy, también podemos guiarle por WhatsApp en tiempo real.
+        </p>
+
+        <a routerLink="/" class="contact__back-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Volver al inicio
+        </a>
+      </div>
     </div>
   </div>
 </section>

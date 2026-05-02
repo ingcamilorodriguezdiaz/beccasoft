@@ -1,6 +1,7 @@
-import { Component, HostListener, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, HostListener, inject, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { ScrollService } from '../../../core/services/scroll.service';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +13,8 @@ import { ScrollService } from '../../../core/services/scroll.service';
 export class NavbarComponent {
   isScrolled        = signal(false);
   isMobileMenuOpen  = signal(false);
+  isSolidRoute      = signal(false);
+  private readonly router = inject(Router);
 
   navLinks = [
     { label: 'Inicio',          fragment: 'inicio' },
@@ -22,7 +25,14 @@ export class NavbarComponent {
     { label: 'Contacto',        fragment: 'contacto-footer' },
   ];
 
-  constructor(private scrollService: ScrollService) {}
+  constructor(private scrollService: ScrollService) {
+    this.updateRouteState(this.router.url);
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        this.updateRouteState((event as NavigationEnd).urlAfterRedirects);
+      });
+  }
 
   @HostListener('window:scroll')
   onScroll(): void {
@@ -35,5 +45,14 @@ export class NavbarComponent {
   goTo(fragment: string): void {
     this.scrollService.scrollToSection(fragment);
     this.closeMobileMenu();
+  }
+
+  get shouldUseSolidNavbar(): boolean {
+    return this.isSolidRoute() || this.isScrolled();
+  }
+
+  private updateRouteState(url: string): void {
+    const pathname = (url ?? '').split('?')[0].split('#')[0];
+    this.isSolidRoute.set(pathname !== '' && pathname !== '/');
   }
 }

@@ -5,4 +5,5 @@ export const environment = {
   whatsappUrl: 'https://wa.me/573115907753',
   emailVentas: 'ventas@beccasoft.com',
   emailSoporte: 'info@beccasoft.com',
+  epaycoCheckoutUrl: 'https://checkout.epayco.co/checkout-v2.js',
 };

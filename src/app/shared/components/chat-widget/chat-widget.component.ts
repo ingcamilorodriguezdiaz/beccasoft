@@ -100,6 +100,15 @@ import { ChatService, SalesMessage } from './chat.service';
               <div class="message-bubble">
                 <p class="message-text" [innerHTML]="formatMessage(msg.content)"></p>
                 <div *ngIf="msg.metadata?.['paymentUrl']" class="payment-link">
+                  <div class="payment-card">
+                    <div class="payment-card__eyebrow">Cierre comercial</div>
+                    <div class="payment-card__title">
+                      {{ msg.metadata?.['quoteNumber'] ? 'Cotización ' + msg.metadata?.['quoteNumber'] : 'Propuesta lista para pagar' }}
+                    </div>
+                    <p class="payment-card__summary">
+                      {{ msg.metadata?.['paymentSummary'] || 'Tu propuesta quedó lista con enlace de pago integrado.' }}
+                    </p>
+                  </div>
                   <a
                     [href]="msg.metadata?.['paymentUrl']"
                     target="_blank"
@@ -107,7 +116,7 @@ import { ChatService, SalesMessage } from './chat.service';
                     class="payment-btn"
                   >
                     <span>&#128179;</span>
-                    <span>Continuar al pago</span>
+                    <span>{{ msg.metadata?.['paymentCtaLabel'] || 'Continuar al pago' }}</span>
                   </a>
                 </div>
               </div>
@@ -605,11 +614,42 @@ import { ChatService, SalesMessage } from './chat.service';
       margin-top: 14px;
     }
 
+    .payment-card {
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(15, 77, 167, 0.08), rgba(0, 198, 160, 0.08));
+      border: 1px solid rgba(77, 232, 202, 0.28);
+      margin-bottom: 10px;
+    }
+
+    .payment-card__eyebrow {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0f4da7;
+      margin-bottom: 8px;
+    }
+
+    .payment-card__title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .payment-card__summary {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: #334155;
+    }
+
     .payment-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 16px;
+      padding: 11px 16px;
       border-radius: 999px;
       font-size: 13px;
       font-weight: 700;

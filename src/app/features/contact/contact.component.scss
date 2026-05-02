@@ -3,31 +3,62 @@
 
 .contact {
   min-height: 100vh;
-  background: v.$color-neutral-50;
+  background:
+    linear-gradient(180deg, #0f172a 0px, #102a56 152px, #f8fbff 152px, #eef4ff 100%);
   display: flex;
-  align-items: center;
-  padding-top: calc(#{v.$navbar-height} + #{v.$spacing-16});
+  align-items: flex-start;
+  padding-top: calc(#{v.$navbar-height} + #{v.$spacing-12});
+  padding-bottom: v.$spacing-16;
 }
 
 .contact__inner {
-  max-width: 680px;
+  max-width: 760px;
   margin: 0 auto;
   text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: v.$radius-3xl;
+  box-shadow: 0 28px 90px rgba(15, 23, 42, 0.12);
+  padding: v.$spacing-12 v.$spacing-10;
+}
+
+.contact__hero {
+  margin-bottom: v.$spacing-10;
+}
+
+.contact__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 v.$spacing-4;
+  border-radius: v.$radius-full;
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+  font-size: v.$font-size-xs;
+  font-weight: v.$font-weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: v.$spacing-4;
 }
 
 .contact__title {
   font-family: v.$font-display;
-  font-size: v.$font-size-4xl;
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: v.$font-weight-bold;
   color: v.$color-primary-800;
   margin-bottom: v.$spacing-4;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
 }
 
 .contact__sub {
   font-size: v.$font-size-lg;
   color: v.$color-neutral-600;
   line-height: v.$line-height-relaxed;
-  margin-bottom: v.$spacing-12;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
 .contact__options {
@@ -42,12 +73,13 @@
   align-items: center;
   gap: v.$spacing-5;
   padding: v.$spacing-5 v.$spacing-8;
-  background: v.$color-white;
-  border: 1px solid v.$color-neutral-200;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  border: 1px solid rgba(226, 232, 240, 0.95);
   border-radius: v.$radius-xl;
   text-decoration: none;
   text-align: left;
   transition: v.$transition-base;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
 
   &:hover {
     border-color: v.$color-primary-200;
@@ -78,4 +110,77 @@
   margin-bottom: v.$spacing-1;
 }
 
-.contact__option-subtitle { font-size: v.$font-size-sm; color: v.$color-neutral-500; }
+.contact__option-subtitle {
+  font-size: v.$font-size-sm;
+  color: v.$color-neutral-500;
+}
+
+.contact__footer {
+  display: grid;
+  gap: v.$spacing-5;
+  justify-items: center;
+}
+
+.contact__footnote {
+  max-width: 34rem;
+  margin: 0;
+  color: v.$color-neutral-500;
+  font-size: v.$font-size-sm;
+  line-height: v.$line-height-relaxed;
+}
+
+.contact__back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$spacing-2;
+  min-height: 52px;
+  padding: 0 v.$spacing-6;
+  border-radius: v.$radius-full;
+  text-decoration: none;
+  font-family: v.$font-display;
+  font-size: v.$font-size-base;
+  font-weight: v.$font-weight-semibold;
+  color: v.$color-primary-800;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(37, 99, 235, 0.24);
+  box-shadow:
+    0 12px 24px rgba(15, 23, 42, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+
+  svg {
+    color: v.$color-primary-500;
+    transition: transform 0.18s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    border-color: rgba(37, 99, 235, 0.36);
+    box-shadow:
+      0 18px 32px rgba(15, 23, 42, 0.10),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+    svg {
+      transform: translateX(-2px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding-top: calc(#{v.$navbar-height-mobile} + #{v.$spacing-8});
+    background:
+      linear-gradient(180deg, #0f172a 0px, #102a56 120px, #f8fbff 120px, #eef4ff 100%);
+  }
+
+  .contact__inner {
+    padding: v.$spacing-8 v.$spacing-5;
+    border-radius: v.$radius-2xl;
+  }
+
+  .contact__option {
+    padding: v.$spacing-5;
+    gap: v.$spacing-4;
+  }
+}

@@ -15,5 +15,10 @@ export const routes: Routes = [
       import('./features/contact/contact.component').then(m => m.ContactComponent),
     title: 'Contacto | Beccasoft',
   },
+  {
+    path: 'payment',
+    loadChildren: () =>
+      import('./features/payment/payment.routes').then((m) => m.PAYMENT_ROUTES),
+  },
   { path: '**', redirectTo: '' },
 ];

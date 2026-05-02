@@ -1,9 +1,10 @@
-import { ApiResponse } from './../../../../../../../frontend/src/app/model/api-response.model';
+
 import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ScrollAnimationDirective } from '../../../../shared/directives/scroll-animation.directive';
 import { environment } from '../../../../../environments/environment';
+import { ApiResponse } from '../../../../model/api-response.model';
 
 // ── Backend types ─────────────────────────────────────────────────────────────
 

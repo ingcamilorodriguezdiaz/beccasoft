@@ -1,7 +1,11 @@
 @use 'styles/variables' as v;
 @use 'styles/mixins' as m;
 
-.plans { background: v.$color-white; }
+.plans {
+  background:
+    radial-gradient(circle at top center, rgba(v.$color-accent-400, 0.10), transparent 28rem),
+    linear-gradient(180deg, #f8fbff 0%, v.$color-white 16rem);
+}
 
 // ── Billing toggle ─────────────────────────────────────────────────────────────
 
@@ -11,6 +15,14 @@
   justify-content: center;
   gap: v.$spacing-3;
   margin-bottom: v.$spacing-10;
+  padding: v.$spacing-2 v.$spacing-4;
+  width: fit-content;
+  margin-inline: auto;
+  border: 1px solid rgba(v.$color-primary-500, 0.10);
+  border-radius: v.$radius-full;
+  background: rgba(v.$color-white, 0.88);
+  box-shadow: 0 18px 45px rgba(v.$color-primary-900, 0.06);
+  backdrop-filter: blur(10px);
   font-size: v.$font-size-sm;
   font-weight: v.$font-weight-medium;
   color: v.$color-neutral-500;
@@ -79,6 +91,7 @@
 
 .plans__card {
   position: relative;
+  overflow: visible;
   background: v.$color-neutral-50;
   border: 1px solid v.$color-neutral-200;
   border-radius: v.$radius-2xl;
@@ -86,22 +99,46 @@
   display: flex;
   flex-direction: column;
   gap: v.$spacing-6;
-  transition: v.$transition-base;
+  box-shadow: 0 18px 40px rgba(v.$color-primary-900, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(v.$color-primary-400, 0.95), rgba(v.$color-accent-400, 0.75));
+    opacity: 0.72;
+  }
 
   &:hover {
-    box-shadow: v.$shadow-xl;
-    transform: translateY(-4px);
+    box-shadow: 0 24px 54px rgba(v.$color-primary-900, 0.12);
+    transform: translateY(-6px);
   }
 
   &--highlight {
-    background: v.$color-primary-800;
+    background:
+      radial-gradient(circle at top right, rgba(v.$color-accent-400, 0.22), transparent 10rem),
+      linear-gradient(180deg, #1b2b55 0%, v.$color-primary-800 56%, #182648 100%);
     border-color: v.$color-primary-700;
     box-shadow: v.$shadow-primary;
 
-    &:hover { transform: translateY(-6px); box-shadow: v.$shadow-2xl; }
+    &::before {
+      height: 5px;
+      background: linear-gradient(90deg, v.$color-accent-400, #7ce3c7);
+      opacity: 1;
+    }
+
+    &:hover { transform: translateY(-8px); box-shadow: v.$shadow-2xl; }
 
     .plans__name { color: v.$color-white; }
     .plans__sub  { color: rgba(v.$color-white, 0.65); }
+    .plans__price {
+      background: rgba(v.$color-white, 0.08);
+      border-color: rgba(v.$color-white, 0.14);
+      box-shadow: inset 0 1px 0 rgba(v.$color-white, 0.08);
+    }
     .plans__price-value { color: v.$color-accent-400; }
     .plans__price-period { color: rgba(v.$color-white, 0.5); }
     .plans__price-note { color: v.$color-accent-400; }
@@ -118,6 +155,33 @@
     }
     .plans__feature-icon--check { stroke: v.$color-accent-400; }
     .plans__feature-icon--x { stroke: rgba(v.$color-white, 0.3); }
+    .plans__helper { color: rgba(v.$color-white, 0.58); }
+    .plans__cta--selected {
+      background: v.$color-accent-500;
+      border-color: v.$color-accent-500;
+      color: v.$color-primary-900;
+      box-shadow: 0 14px 30px rgba(v.$color-accent-500, 0.22);
+
+      &:hover {
+        background: v.$color-accent-400;
+        border-color: v.$color-accent-400;
+      }
+    }
+    .plans__cta--ghost {
+      border-color: rgba(v.$color-accent-400, 0.75);
+      color: v.$color-accent-300;
+      background: rgba(v.$color-white, 0.03);
+
+      &:hover {
+        background: rgba(v.$color-accent-400, 0.14);
+        border-color: v.$color-accent-400;
+        color: v.$color-white;
+      }
+
+      &:focus-visible {
+        outline-color: v.$color-accent-300;
+      }
+    }
   }
 
   &--selected {
@@ -128,7 +192,7 @@
 
 .plans__badge {
   position: absolute;
-  top: -14px;
+  top: -16px;
   left: 50%;
   transform: translateX(-50%);
   font-family: v.$font-display;
@@ -141,6 +205,7 @@
   padding: v.$spacing-1 v.$spacing-5;
   border-radius: v.$radius-full;
   white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(v.$color-accent-500, 0.30);
 }
 
 // ── Card top ─────────────────────────────────────────────────────────────────
@@ -157,13 +222,19 @@
   font-size: v.$font-size-sm;
   color: v.$color-neutral-600;
   line-height: v.$line-height-relaxed;
-  margin-bottom: v.$spacing-4;
+  margin-bottom: v.$spacing-5;
 }
 
 .plans__price {
   display: flex;
   align-items: baseline;
   gap: v.$spacing-1;
+  width: fit-content;
+  padding: v.$spacing-2 v.$spacing-3;
+  border: 1px solid rgba(v.$color-primary-500, 0.10);
+  border-radius: calc(v.$radius-xl - 2px);
+  background: rgba(v.$color-white, 0.78);
+  box-shadow: inset 0 1px 0 rgba(v.$color-white, 0.65);
 }
 
 .plans__price-value {
@@ -181,7 +252,7 @@
 .plans__price-note {
   font-size: v.$font-size-xs;
   color: v.$color-accent-500;
-  margin-top: v.$spacing-1;
+  margin-top: v.$spacing-2;
   font-weight: v.$font-weight-medium;
 }
 
@@ -229,8 +300,13 @@
   color: v.$color-neutral-700;
   padding: v.$spacing-2 0;
   border-bottom: 1px solid v.$color-neutral-100;
+  transition: background 0.18s ease, transform 0.18s ease;
 
   &:last-child { border-bottom: none; }
+
+  &:hover {
+    background: rgba(v.$color-primary-500, 0.025);
+  }
 
   &--excluded {
     opacity: 0.5;
@@ -326,12 +402,14 @@
   &--selected {
     background: v.$color-primary-50;
     border-color: v.$color-primary-500;
+    box-shadow: 0 10px 22px rgba(v.$color-primary-500, 0.12);
   }
 
   &--buy {
     background: v.$color-primary-600;
     border-color: v.$color-primary-600;
     color: v.$color-white;
+    box-shadow: 0 16px 28px rgba(v.$color-primary-700, 0.20);
 
     &:hover:not(:disabled) {
       background: v.$color-primary-700;
@@ -341,6 +419,7 @@
 
   &--ghost {
     border-style: dashed;
+    background: rgba(v.$color-primary-500, 0.015);
   }
 }
 

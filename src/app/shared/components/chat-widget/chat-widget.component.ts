@@ -1031,6 +1031,7 @@ export class ChatWidgetComponent implements OnInit, AfterViewChecked {
 
   private conversationId = signal<string | null>(null);
   private shouldScrollToBottom = false;
+  private pendingMessageAfterInit: string | null = null;
 
   ngOnInit() {
     const saved = localStorage.getItem('becca_chat_conv_id');
@@ -1069,6 +1070,19 @@ export class ChatWidgetComponent implements OnInit, AfterViewChecked {
 
   sendMessage() {
     const content = this.inputText.trim();
+    if (!content || this.isTyping()) return;
+
+    if (!this.conversationId()) {
+      this.pendingMessageAfterInit = content;
+      this.inputText = '';
+      this.initConversation(true);
+      return;
+    }
+
+    this.dispatchMessage(content);
+  }
+
+  private dispatchMessage(content: string) {
     if (!content || this.isTyping() || !this.conversationId()) return;
 
     this.inputText = '';
@@ -1136,7 +1150,7 @@ export class ChatWidgetComponent implements OnInit, AfterViewChecked {
     });
   }
 
-  private initConversation() {
+  private initConversation(sendPendingMessage = false) {
     this.isTyping.set(true);
     this.errorMessage.set(null);
     this.chatService.createConversation({ source: 'WEB_CHAT' }).subscribe({
@@ -1144,10 +1158,19 @@ export class ChatWidgetComponent implements OnInit, AfterViewChecked {
         this.conversationId.set(conv.id);
         localStorage.setItem('becca_chat_conv_id', conv.id);
         this.isTyping.set(false);
+        if (sendPendingMessage && this.pendingMessageAfterInit) {
+          const queuedMessage = this.pendingMessageAfterInit;
+          this.pendingMessageAfterInit = null;
+          this.dispatchMessage(queuedMessage);
+        }
       },
       error: (error) => {
         this.isTyping.set(false);
         this.errorMessage.set(this.extractErrorMessage(error));
+        if (this.pendingMessageAfterInit) {
+          this.inputText = this.pendingMessageAfterInit;
+          this.pendingMessageAfterInit = null;
+        }
       },
     });
   }
